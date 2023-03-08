@@ -11,4 +11,8 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 import pandas
 dataframe_fruits = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+
+# Lets add a multi choice button for user interaction
+streamline.multiselect("Pick fav fruits:", list(dataframe_fruits.index))
+
 streamlit.dataframe(dataframe_fruits)
