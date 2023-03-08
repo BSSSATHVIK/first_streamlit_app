@@ -12,6 +12,9 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 import pandas
 dataframe_fruits = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
+# Set index for the table the Fruit column
+dataframe_fruits = dataframe_fruits.set_index('Fruit')
+
 # Lets add a multi choice button for user interaction
 streamlit.multiselect("Pick fav fruits:", list(dataframe_fruits.index))
 
