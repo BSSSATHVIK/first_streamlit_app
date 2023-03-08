@@ -16,7 +16,10 @@ dataframe_fruits = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws
 dataframe_fruits = dataframe_fruits.set_index('Fruit')
 
 # Lets add a multi choice button for user interaction
-streamlit.multiselect("Pick fav fruits:", list(dataframe_fruits.index), ['Avocado', 'Apple'])
+fruits_selected = streamlit.multiselect("Pick fav fruits:", list(dataframe_fruits.index), ['Avocado', 'Apple'])
+
+# Variable to get the result for the selected fruits
+fruits_to_show = dataframe_fruits.loc[fruits_selected]
 
 # Display the table result
-streamlit.dataframe(dataframe_fruits)
+streamlit.dataframe(fruits_to_show)
